@@ -1,0 +1,9 @@
+services:
+  db:
+    type: mariadb
+    port: 3306
+    env_file: .env
+    volumes:
+      - ./docker-entrypoint.sh:/docker-entrypoint.sh
+      - ./Dockerfile:/Dockerfile
+    command: ["bash", "/docker-entrypoint.sh"]
