@@ -1,10 +1,12 @@
-FROM mysql:latest
+FROM mariadb:latest
+
+ENV MARIADB_ROOT_PASSWORD=12345
+ENV MARIADB_DATABASE=prueba
+ENV MARIADB_USER=root
+ENV MARIADB_PASSWORD=12345
 
 
-ENV MYSQL_ROOT_PASSWORD=Perro16tonto
-ENV MYSQL_DATABASE=presupuesto
-ENV MYSQL_USER=userRemoto
-ENV MYSQL_PASSWORD=Perro16tonto
+COPY ./init.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 3306
 
